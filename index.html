@@ -1,0 +1,297 @@
+<!-- ========================= -->
+<!-- index.html -->
+<!-- ========================= -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>NEXUS ASCEND</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div id="particles"></div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <h1>NEXUS</h1>
+
+    <button id="dashboardButton">
+      Dashboard
+    </button>
+
+    <button id="missionsButton">
+      Missões
+    </button>
+
+    <button id="skillsButton">
+      Skills
+    </button>
+
+    <button id="profileButton">
+      Perfil
+    </button>
+
+    <button id="testXP">
+      +100 XP
+    </button>
+
+    <button id="resetButton">
+      Resetar
+    </button>
+
+  </div>
+
+<div class="pages"></div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+
+    <!-- DASHBOARD -->
+    <div
+      class="card section"
+      id="dashboardSection"
+    >
+
+      <h2>Dashboard</h2>
+
+      <h3 id="levelText">
+        Nível 1
+      </h3>
+
+      <div class="xp-bar">
+
+        <div
+          class="xp-fill"
+          id="xpFill"
+        ></div>
+
+      </div>
+
+      <p id="xpText">
+        0 / 100 XP
+      </p>
+
+    </div>
+
+
+
+    <!-- PROFILE -->
+    <div
+      class="profile-card section"
+      id="profileSection"
+    >
+
+      <img
+        src="—Pngtree—top down view cute cartoonish_23480875.png"
+        alt="Avatar"
+        id="avatar"
+      >
+
+      <h2>Kelvin</h2>
+
+      <select id="classSelect">
+
+        <option value="executor">
+          Executor
+        </option>
+
+        <option value="hacker">
+          Hacker
+        </option>
+
+        <option value="monk">
+          Monge
+        </option>
+
+      </select>
+
+
+      <p>
+        🧠 Inteligência:
+        <span id="intelligenceText">
+          0
+        </span>
+      </p>
+
+      <p>
+        💪 Força:
+        <span id="strengthText">
+          0
+        </span>
+      </p>
+
+      <p>
+        🔥 Disciplina:
+        <span id="disciplineText">
+          0
+        </span>
+      </p>
+
+    </div>
+
+
+
+    <!-- QUESTS -->
+    <div
+      class="card section wide"
+      id="questsSection"
+    >
+
+      <h2>Quests Diárias</h2>
+
+      <div id="questsContainer">
+
+      </div>
+
+    </div>
+
+
+
+    <!-- SKILLS -->
+    <div
+      class="card section wide"
+      id="skillsSection"
+    >
+
+      <h2>Skill Tree</h2>
+
+      <p id="skillPointsText">
+        Skill Points: 0
+      </p>
+
+
+      <div class="skills">
+
+        <div class="skill unlocked">
+          Disciplina I
+        </div>
+
+        <div
+          class="skill locked unlockable"
+        >
+          Foco Mental
+        </div>
+
+        <div
+          class="skill locked unlockable"
+        >
+          Corpo Forte
+        </div>
+
+        <div
+          class="skill locked unlockable"
+        >
+          Resistência
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ESTATÍSTICAS -->
+    <div
+      class="card full-width"
+      id="statsSection"
+    >
+
+      <h2>Estatísticas</h2>
+
+      <p>
+        ⚡ XP Total:
+        <span id="totalXPText">
+          0
+        </span>
+      </p>
+
+      <p>
+        ✅ Quests:
+        <span id="questsDoneText">
+          0
+        </span>
+      </p>
+
+      <p>
+        🔥 Streak:
+        <span id="streakText">
+          0
+        </span>
+      </p>
+
+      <p>
+        👑 Rank:
+        <span id="rankText">
+          Iniciante
+        </span>
+      </p>
+
+    </div>
+
+
+
+    <!-- ACHIEVEMENTS -->
+    <div class="card full-width">
+
+      <h2>Achievements</h2>
+
+      <div id="achievements">
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ANALYTICS -->
+    <div class="card full-width">
+
+      <h2>Analytics</h2>
+
+      <div id="analytics">
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- POPUP -->
+  <div id="levelPopup">
+
+    <h1>LEVEL UP</h1>
+
+    <p id="popupLevel">
+      Nível 1
+    </p>
+
+    <span>
+      +1 Skill Point
+    </span>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
