@@ -5,12 +5,13 @@
 
 // DADOS
 
+
+
 let xp =
   Number(localStorage.getItem("xp")) || 0;
 
 let level =
   Number(localStorage.getItem("level")) || 1;
-
 
 let intelligence =
   Number(localStorage.getItem("intelligence")) || 0;
@@ -304,6 +305,7 @@ const resetButton =
     "resetButton"
   );
 
+
   const particles =
   document.getElementById(
     "particles"
@@ -391,6 +393,134 @@ function generateQuests(){
 
       xp += quest.xp;
       totalXP += quest.xp;
+
+      // ===== CLASS MULTIPLIERS =====
+
+let multiplier = 1;
+
+
+switch(playerClass){
+
+  case "executor":
+
+    if(
+      quest.attribute ===
+      "strength"
+    ){
+
+      multiplier = 1.6;
+
+    }
+
+    if(
+      quest.attribute ===
+      "intelligence"
+    ){
+
+      multiplier = 0.7;
+
+    }
+
+  break;
+
+
+
+  case "hacker":
+
+    if(
+      quest.attribute ===
+      "intelligence"
+    ){
+
+      multiplier = 1.6;
+
+    }
+
+    if(
+      quest.attribute ===
+      "strength"
+    ){
+
+      multiplier = 0.7;
+
+    }
+
+  break;
+
+
+
+  case "monk":
+
+    if(
+      quest.attribute ===
+      "discipline"
+    ){
+
+      multiplier = 1.7;
+
+    }
+
+    if(
+      quest.attribute ===
+      "strength"
+    ){
+
+      multiplier = 0.85;
+
+    }
+
+    if(
+      quest.attribute ===
+      "intelligence"
+    ){
+
+      multiplier = 0.85;
+
+    }
+
+  break;
+
+}
+
+
+
+// ===== FINAL VALUE =====
+
+const finalValue =
+
+  Math.round(
+    quest.value * multiplier
+  );
+
+
+
+// ===== STATUS =====
+
+switch(quest.attribute){
+
+  case "intelligence":
+
+    intelligence += finalValue;
+
+  break;
+
+
+
+  case "strength":
+
+    strength += finalValue;
+
+  break;
+
+
+
+  case "discipline":
+
+    discipline += finalValue;
+
+  break;
+
+}
 
       const days = [
   "Dom",
@@ -494,6 +624,7 @@ switch(quest.attribute){
 
       button.disabled = true;
 
+
     });
 
 
@@ -502,7 +633,6 @@ switch(quest.attribute){
   });
 
 }
-
 
 
 // SKILLS
@@ -1070,3 +1200,90 @@ statsSection.style.display =
 }
 
 createParticles();
+
+// ===== MOUSE GLOW =====
+
+const cards =
+  document.querySelectorAll(
+    ".card, .profile-card"
+  );
+
+
+cards.forEach((card)=>{
+
+  const glow =
+    document.createElement("div");
+
+  glow.classList.add(
+    "mouse-glow"
+  );
+
+  card.appendChild(glow);
+
+
+  card.addEventListener(
+    "mousemove",
+    (e)=>{
+
+      const rect =
+        card.getBoundingClientRect();
+
+      const x =
+        e.clientX - rect.left;
+
+      const y =
+        e.clientY - rect.top;
+
+
+      glow.style.left =
+        `${x}px`;
+
+      glow.style.top =
+        `${y}px`;
+
+      glow.style.opacity =
+        "1";
+
+    }
+  );
+
+
+  card.addEventListener(
+    "mouseleave",
+    ()=>{
+
+      glow.style.opacity =
+        "0";
+
+    }
+  );
+
+});
+
+// ===== CLASS SYSTEM =====
+
+classSelect.value =
+  playerClass;
+
+
+classSelect.addEventListener(
+
+  "change",
+
+  ()=>{
+
+    playerClass =
+      classSelect.value;
+
+
+    localStorage.setItem(
+
+      "playerClass",
+
+      playerClass
+
+    );
+
+  }
+
+);
